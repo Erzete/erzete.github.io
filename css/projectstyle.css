@@ -11,6 +11,8 @@ body {
     width: 100%;
     background-color: #f0dfd3;
     z-index: 1000; 
+    justify-content: space-between; /* Adjusted for better alignment on small screens */
+    padding: 0 20px; /* Added padding for better spacing on smaller screens */
 }
 
 .topnav a {
