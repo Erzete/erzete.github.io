@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang=”en”>
+    <head>
+        <link rel="stylesheet" href="css/projectstyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    </head>
+    
+<body>
+    <div class="topnav">
+        <a href="https://www.linkedin.com/in/r/" target="_blank">LinkedIn</a>
+        <a href="#news">Github</a>
+    </div>
+
+    <div class="content">
+        <h1>Babadu</h1>
+        <p>Created for database course using Django and PostgreSQL. An app to track local badminton athletes, tournaments, etc.
+        </p>
+        <p>Tech Stack:</p>
+        <div class="tech-stack">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="python logo" style="width: 30px;">
+            <img src="https://1000logos.net/wp-content/uploads/2020/08/Django-Logo.png" alt="django">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/540px-Postgresql_elephant.svg.png" alt="PostgreSQL logo" style="width: 30px;">
+        </div>
+
+        <section class="container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img src="img/Babadu/Babadu_1.png" alt="Babadu Preview 1" id="slide-1">
+                    <img src="img/Babadu/Babadu_2.png" alt="Babadu Preview 2" id="slide-2">
+                    <img src="img/Babadu/Babadu_3.png" alt="Babadu Preview 3" id="slide-3">
+                    <img src="img/Babadu/Babadu_4.png" alt="Babadu Preview 4" id="slide-4">
+                </div>
+                <div class="slider-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                    <a href="#slide-4"></a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slider img');
+            const navLinks = document.querySelectorAll('.slider-nav a');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                const slideWidth = slides[0].clientWidth;
+                slider.scrollLeft = index * slideWidth;
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
+            }
+
+            function autoSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                showSlide(currentIndex);
+            }
+
+            let slideInterval = setInterval(autoSlide, 3000); // Change slide every 3 seconds
+
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    currentIndex = index;
+                    slideInterval = setInterval(autoSlide, 3000); // Restart auto-slide interval
+                });
+            });
+
+            navLinks[0].classList.add('active');
+        });
+    </script>
+</body>
+</html>
