@@ -48,6 +48,10 @@ body {
     text-align: center;
 }
 
+.content p {
+    margin-left: 350px;
+    margin-right: 350px;
+}
 .arrow-down {
     position: absolute;
     bottom: 20px;
