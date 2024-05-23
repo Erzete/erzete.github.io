@@ -6,17 +6,20 @@ body {
 }
 
 .topnav {
-    position: fixed; 
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background-color: #f0dfd3;
-    z-index: 1000; 
-    justify-content: space-between; /* Adjusted for better alignment on small screens */
-    padding: 0 20px; /* Added padding for better spacing on smaller screens */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
 .topnav a {
-    float: right;
     color: #8d0707;
     text-align: center;
     padding: 14px 16px;
@@ -26,12 +29,7 @@ body {
 }
 
 .topnav a.home {
-    float: left;
-    color: #8d0707;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 14px;
+    margin-right: auto; /* Ensures the Home link stays on the left */
 }
 
 .topnav a:hover {
@@ -43,13 +41,13 @@ body {
     text-align: center;
     justify-content: center;
     height: 100vh;
+    padding: 20px;
     padding-top: 40px;
 }
 
 .content p {
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-bottom: 1px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 .tech-stack {
