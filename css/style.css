@@ -5,14 +5,14 @@
 }
 
 :root {
-    --bg: #0a0a0c;
-    --surface: #111115;
-    --surface-hover: #18181f;
-    --border: #22222b;
-    --text: #e4e4e7;
-    --text-dim: #71717a;
-    --accent: #818cf8;
-    --accent-glow: rgba(99, 102, 241, 0.12);
+    --bg: #12121a;
+    --surface: #1c1c27;
+    --surface-hover: #252534;
+    --border: #2e2e3c;
+    --text: #ececf0;
+    --text-dim: #8e8ea4;
+    --accent: #f4726b;
+    --accent-glow: rgba(244, 114, 107, 0.12);
     --radius: 12px;
     --transition: 0.25s ease;
 }
@@ -40,9 +40,7 @@ body {
     align-items: center;
     padding: 0 32px;
     height: 56px;
-    background: rgba(10, 10, 12, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
 }
 
@@ -88,11 +86,11 @@ body {
 #hero::before {
     content: '';
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     pointer-events: none;
 }
@@ -148,7 +146,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #6366f1;
+    background: #e8635c;
     transform: translateY(-1px);
 }
 
@@ -243,7 +241,7 @@ section {
 }
 
 .skill-category:hover {
-    border-color: #333;
+    border-color: #444;
 }
 
 .skill-category h3 {
@@ -272,7 +270,7 @@ section {
 
 .skill-tags span:hover {
     color: var(--text);
-    background: #222;
+    background: #333;
 }
 
 /* PROJECTS */
@@ -294,7 +292,7 @@ section {
 
 .project-card:hover {
     transform: translateY(-4px);
-    border-color: #333;
+    border-color: #444;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -437,7 +435,7 @@ footer {
         left: 0;
         width: 100%;
         flex-direction: column;
-        background: rgba(10, 10, 12, 0.95);
+        background: rgba(18, 18, 26, 0.98);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
