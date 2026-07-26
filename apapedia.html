@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-
-<html lang=”en”>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/projectstyle.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-        <title>Rama Tridigdaya</title>
-    </head>
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/projectstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Apapedia — Rama Tridigdaya</title>
+</head>
 <body>
     <div class="topnav">
-        <a href="./" class="home">Home</a>
+        <a href="./" class="home">RT</a>
+        <a href="./#projects">Projects</a>
         <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
         <a href="https://github.com/erzete" target="_blank">Github</a>
+        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 
     <div class="content">
@@ -26,10 +29,10 @@
     </br>
         <p>Tech Stack:</p>
         <div class="tech-stack">
-            <img src="https://static-00.iconduck.com/assets.00/spring-boot-icon-2048x2046-hlpnsm8r.png" alt="springboot logo" style="width: 30px;">
-            <img src="https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png" alt="java logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Google-flutter-logo.svg/2560px-Google-flutter-logo.svg.png" alt="flutter logo" style="padding-bottom: 7px;">
-            <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-512.png" alt="Docker logo" style="width: 35px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" alt="Docker">
         </div>
 
         <section class="container">
@@ -50,6 +53,7 @@
                 </div>
             </div>
         </section>
+        <a href="./" class="back-link">&larr; Back to Home</a>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {

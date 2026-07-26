@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-
-<html lang=”en”>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/projectstyle.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-        <title>Rama Tridigdaya</title>
-    </head>
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/projectstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Babadu — Rama Tridigdaya</title>
+</head>
 <body>
     <div class="topnav">
-        <a href="./" class="home">Home</a>
+        <a href="./" class="home">RT</a>
+        <a href="./#projects">Projects</a>
         <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
         <a href="https://github.com/erzete" target="_blank">Github</a>
+        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 
     <div class="content">
@@ -24,9 +27,9 @@
     </br>
         <p>Tech Stack:</p>
         <div class="tech-stack">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="python logo" style="width: 30px;">
-            <img src="https://1000logos.net/wp-content/uploads/2020/08/Django-Logo.png" alt="django">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/540px-Postgresql_elephant.svg.png" alt="PostgreSQL logo" style="width: 30px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
         </div>
 
         <section class="container">
@@ -45,6 +48,7 @@
                 </div>
             </div>
         </section>
+        <a href="./" class="back-link">&larr; Back to Home</a>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
