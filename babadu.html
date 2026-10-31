@@ -3,88 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Django and PostgreSQL application for tracking badminton athletes and tournaments.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Babadu — Rama Tridigdaya">
+    <meta property="og:description" content="A Django and PostgreSQL application for tracking badminton athletes and tournaments.">
+    <meta property="og:url" content="https://erzete.github.io/babadu">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/babadu">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
     <title>Babadu — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-
-    <div class="content">
-        <h1>Babadu</h1>
-        <p>Created for database course using Django and PostgreSQL. An app to track local badminton athletes, tournaments, etc.
-        </p>
-    </br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-        </div>
-
-        <section class="container">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="img/Babadu/Babadu_1.png" alt="Babadu Preview 1" id="slide-1">
-                    <img src="img/Babadu/Babadu_2.png" alt="Babadu Preview 2" id="slide-2">
-                    <img src="img/Babadu/Babadu_3.png" alt="Babadu Preview 3" id="slide-3">
-                    <img src="img/Babadu/Babadu_4.png" alt="Babadu Preview 4" id="slide-4">
-                </div>
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                    <a href="#slide-4"></a>
-                </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
             </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">Babadu</span></nav>
+            <span class="eyebrow">University project / Sports &amp; data management</span>
+
+            <h1>Babadu</h1>
+            <p class="project-summary">A Django and PostgreSQL application for tracking badminton athletes and tournaments.</p>
+            <div class="project-meta"><div><span class="meta-label">Focus</span><p>Badminton athletes &amp; tournaments</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Python</li><li>Django</li><li>PostgreSQL</li></ul></div></div>
+        </header>
+
+
+
+        <figure class="system-figure tone-blue" aria-labelledby="diagram-title">
+            <div class="figure-heading"><h2 id="diagram-title">An application around badminton records</h2><span class="figure-index">System overview</span></div>
+            <ol class="flow"><li class="flow-node"><span class="flow-step">01 / People</span><strong>Athlete records</strong><p>Information about local badminton athletes.</p></li><li class="flow-node central"><span class="flow-step">02 / Web application</span><strong>Babadu</strong><p>A Django application backed by PostgreSQL.</p></li><li class="flow-node"><span class="flow-step">03 / Events</span><strong>Tournament records</strong><p>Information about badminton tournaments.</p></li></ol>
+            <figcaption>Conceptual overview of the application’s subject areas, not a database schema.</figcaption>
+        </figure>
+        <div class="case-copy"><section aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>Created for a database course, Babadu applies Django and PostgreSQL to the domain of local badminton. The application brings athlete and tournament information into a web interface.</p></section><section aria-labelledby="does-title"><h2 id="does-title">What it does</h2><ul class="feature-list"><li>Track local badminton athletes.</li><li>Organize tournament information.</li><li>Present badminton records through a web application.</li></ul></section></div>
+
+
+
+
+        <section class="gallery-section" data-gallery aria-labelledby="gallery-title">
+            <span class="eyebrow">Inside the application</span><h2 id="gallery-title">A look at the interface.</h2>
+            <p class="gallery-intro">Swipe or scroll through the screenshots. Open an image for a closer look.</p>
+            <div class="gallery-track" tabindex="0" role="region" aria-label="Project screenshots; use left and right arrow keys to navigate">
+                <figure class="gallery-slide" aria-label="Screenshot 1 of 5"><a href="img/Babadu/Babadu_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Qualification schedule"><img src="img/Babadu/Babadu_2.png" alt="Qualification schedule" width="1915" height="903" loading="lazy" decoding="async"></a><figcaption>Qualification schedule<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 2 of 5"><a href="img/Babadu/Babadu_3.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Babadu application view 02"><img src="img/Babadu/Babadu_3.png" alt="Babadu application view 02" width="1918" height="902" loading="lazy" decoding="async"></a><figcaption>Babadu application view 02<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 3 of 5"><a href="img/Babadu/Babadu_4.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Babadu application view 03"><img src="img/Babadu/Babadu_4.png" alt="Babadu application view 03" width="1902" height="900" loading="lazy" decoding="async"></a><figcaption>Babadu application view 03<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 4 of 5"><a href="img/Babadu/Babadu_5.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Babadu application view 04"><img src="img/Babadu/Babadu_5.png" alt="Babadu application view 04" width="1891" height="843" loading="lazy" decoding="async"></a><figcaption>Babadu application view 04<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 5 of 5"><a href="img/Babadu/Babadu_1.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Babadu application view 05"><img src="img/Babadu/Babadu_1.png" alt="Babadu application view 05" width="1917" height="905" loading="lazy" decoding="async"></a><figcaption>Babadu application view 05<span>Open image to view full size ↗</span></figcaption></figure>
+            </div>
+            <div class="gallery-controls" hidden><p aria-live="polite" aria-atomic="true">Screenshot <span data-count>1 / 5</span></p><div class="gallery-buttons"><button type="button" data-previous aria-label="Previous screenshot">←</button><button type="button" data-next aria-label="Next screenshot">→</button></div></div>
         </section>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = document.querySelector('.slider');
-            const slides = document.querySelectorAll('.slider img');
-            const navLinks = document.querySelectorAll('.slider-nav a');
-
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-
-            function showSlide(index) {
-                const slideWidth = slides[0].clientWidth;
-                slider.scrollLeft = index * slideWidth;
-                navLinks.forEach(link => link.classList.remove('active'));
-                navLinks[index].classList.add('active');
-            }
-
-            function autoSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                showSlide(currentIndex);
-            }
-
-            let slideInterval = setInterval(autoSlide, 3000); // Change slide every 3 seconds
-
-            navLinks.forEach((link, index) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    clearInterval(slideInterval);
-                    showSlide(index);
-                    currentIndex = index;
-                    slideInterval = setInterval(autoSlide, 3000); // Restart auto-slide interval
-                });
-            });
-
-            navLinks[0].classList.add('active');
-        });
-    </script>
+        <nav class="next-project" aria-label="Project navigation"><a href="./odoo-whatsapp"><span class="eyebrow">Next project</span><span class="next-title">Odoo Procurement Automation</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -3,33 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An Oracle APEX application for stock-count sessions, printable QR-linked sheets, and recount cycles, with Odoo file import and export.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Stock Count Management — Rama Tridigdaya">
+    <meta property="og:description" content="An Oracle APEX application for stock-count sessions, printable QR-linked sheets, and recount cycles, with Odoo file import and export.">
+    <meta property="og:url" content="https://erzete.github.io/scm">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/scm">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <title>SCM — Rama Tridigdaya</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
+    <title>Stock Count Management — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">Stock Count Management</span></nav>
+            <span class="eyebrow">Work project / Warehouse operations</span>
+            <p class="project-status">Awaiting operational use</p>
+            <h1>Stock Count Management</h1>
+            <p class="project-summary">An Oracle APEX application for stock-count sessions, printable QR-linked sheets, and recount cycles, with Odoo file import and export.</p>
+            <div class="project-meta"><div><span class="meta-label">Focus</span><p>Stock-count sessions, count sheets &amp; recount cycles</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Oracle APEX</li></ul></div></div>
+        </header>
 
-    <div class="content">
-        <h1>SCM — Stock Count Management</h1>
-        <p>Year-end stock counts used to be spreadsheets, shouting, and crossed fingers. Built this on Oracle APEX so the warehouse team can scan, verify, and reconcile without losing their minds. Way less errors, way less drama.</p>
-        <br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" alt="Oracle APEX" style="width: 44px;">
-            <span style="color: var(--text-dim); font-size: 14px; margin-left: 6px;">Oracle APEX</span>
+        <section class="case-intro" aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>SCM is designed for Finance and Accounting teams auditing warehouse stock. It organizes quarterly and annual stock-count sessions, including annual counts split into parts. Location-based count sheets, review cycles, and Odoo file exchange support the count from preparation to its final export. The application has not yet entered operational use.</p></section>
+
+
+        <section class="workflow-section" aria-labelledby="workflows-title"><span class="eyebrow">The stock-count workflow</span><h2 id="workflows-title">Prepare, count, review, and recount.</h2><ol class="workflow-list"><li><span class="workflow-index" aria-hidden="true">01</span><div class="workflow-content"><h3>Organize count sessions and their history</h3><p>Quarterly and annual counts are organized as separate sessions, with annual counts also divided into parts. Past sessions are documented and can be restored when needed.</p><figure class="workflow-diagram" aria-label="Organize count sessions and their history flow"><ol class="workflow-flow"><li>Count session</li><li>Quarterly / annual scope</li><li>Session history</li><li>Restore if needed</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">02</span><div class="workflow-content"><h3>Create a session from an Odoo stock file</h3><p>An Odoo stock_quant file can be uploaded into SCM to create a new stock-count session.</p><figure class="workflow-diagram" aria-label="Create a session from an Odoo stock file flow"><ol class="workflow-flow"><li>Odoo stock_quant file</li><li>Upload to SCM</li><li>New count session</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">03</span><div class="workflow-content"><h3>Generate count sheets by location</h3><p>Stock lines are divided into location-based count sheets, called papers in the application. Each paper can be generated as a printable PDF for the count.</p><figure class="workflow-diagram" aria-label="Generate count sheets by location flow"><ol class="workflow-flow"><li>Session stock lines</li><li>Group by location</li><li>Count sheets</li><li>Printable PDFs</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">04</span><div class="workflow-content"><h3>Manage line-level recount cycles</h3><p>Each paper has a count cycle. Rejected lines generate a new paper and a new cycle, allowing items to be counted again as needed.</p><figure class="workflow-diagram" aria-label="Manage line-level recount cycles flow"><ol class="workflow-flow"><li>Count sheet</li><li>Review lines</li><li>Rejected lines</li><li>New sheet + next cycle</li></ol></figure><p class="workflow-detail">A supervisor can force-accept a discrepant line when needed.</p></div></li><li><span class="workflow-index" aria-hidden="true">05</span><div class="workflow-content"><h3>Open the matching sheet from its QR code</h3><p>Each PDF includes a QR code containing the paper’s ID. Scanning it inside SCM opens that count sheet directly.</p><figure class="workflow-diagram" aria-label="Open the matching sheet from its QR code flow"><ol class="workflow-flow"><li>QR on printed PDF</li><li>Scan in SCM</li><li>Open matching sheet</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">06</span><div class="workflow-content"><h3>Export count results back to Odoo</h3><p>The stock-count result can be exported as a CSV file for import back into Odoo.</p><figure class="workflow-diagram" aria-label="Export count results back to Odoo flow"><ol class="workflow-flow"><li>Stock-count results</li><li>CSV export</li><li>Odoo import</li></ol></figure></div></li></ol></section>
+
+
+
+        <nav class="next-project" aria-label="Project navigation"><a href="./silci"><span class="eyebrow">Next project</span><span class="next-title">SI-LCI</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
         </div>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
+    </footer>
 </body>
 </html>

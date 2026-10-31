@@ -3,35 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Zendesk sidebar app for customer WhatsApp conversations, ticket-to-template field mapping, and outreach logging.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ChatDesk — Rama Tridigdaya">
+    <meta property="og:description" content="A Zendesk sidebar app for customer WhatsApp conversations, ticket-to-template field mapping, and outreach logging.">
+    <meta property="og:url" content="https://erzete.github.io/chatdesk">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/chatdesk">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
     <title>ChatDesk — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">ChatDesk</span></nav>
+            <span class="eyebrow">Work project / Customer support</span>
 
-    <div class="content">
-        <h1>ChatDesk</h1>
-        <p>Customer service was stuck juggling Zendesk and WhatsApp separately — switching tabs, losing context, the whole mess. Built ChatDesk to bridge them through Chatwoot, so agents just work from Zendesk and the customer has no idea anything changed on the other end.</p>
-        <br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zendesk.svg" alt="Zendesk" style="width: 44px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meta.svg" alt="Meta API" style="width: 44px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/chatwoot.svg" alt="Chatwoot" style="width: 44px;">
+            <h1>ChatDesk</h1>
+            <p class="project-summary">A Zendesk sidebar app for customer WhatsApp conversations, ticket-to-template field mapping, and outreach logging.</p>
+            <div class="project-meta"><div><span class="meta-label">Focus</span><p>Customer conversations &amp; template outreach inside Zendesk</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Zendesk app</li><li>Python</li><li>Chatwoot</li><li>Meta WhatsApp API</li></ul></div></div>
+        </header>
+
+        <section class="case-intro" aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>Customer service already used Zendesk for tickets, but WhatsApp outreach meant switching tabs and copying ticket values into message templates. ChatDesk provides a custom Zendesk sidebar interface connected to Chatwoot, with ticket fields mapped into the app and WhatsApp templates. An earlier usage check put total message volume at roughly 50–100 messages per day.</p></section>
+
+
+        <section class="workflow-section" aria-labelledby="workflows-title"><span class="eyebrow">The support workflow</span><h2 id="workflows-title">Customer outreach, beside the ticket.</h2><ol class="workflow-list"><li><span class="workflow-index" aria-hidden="true">01</span><div class="workflow-content"><h3>Open the right customer conversation</h3><p>The customer phone number on the Zendesk ticket is mapped into ChatDesk’s custom sidebar interface. The interface connects to Chatwoot so agents can review the customer’s messages and send a WhatsApp message while staying inside Zendesk.</p><figure class="workflow-diagram" aria-label="Open the right customer conversation flow"><ol class="workflow-flow"><li>Zendesk ticket</li><li>Customer phone number</li><li>Custom sidebar UI</li><li>Chatwoot conversation</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">02</span><div class="workflow-content"><h3>Prepare WhatsApp templates from ticket fields</h3><p>Zendesk fields map to app inputs and WhatsApp template parameters, reducing repeated copying between tools. The ChatDesk backend calls Chatwoot, which sends the message through the Meta WhatsApp API.</p><figure class="workflow-diagram" aria-label="Prepare WhatsApp templates from ticket fields flow"><ol class="workflow-flow"><li>Mapped ticket fields</li><li>ChatDesk backend</li><li>Chatwoot</li><li>Meta WhatsApp API</li><li>Customer</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">03</span><div class="workflow-content"><h3>Keep template outreach in the ticket record</h3><p>Each template message send is recorded in its Zendesk ticket, keeping a record of the outreach alongside the support work.</p><figure class="workflow-diagram" aria-label="Keep template outreach in the ticket record flow"><ol class="workflow-flow"><li>Template sent</li><li>Send recorded</li><li>Zendesk ticket</li></ol></figure></div></li></ol></section>
+
+
+
+        <nav class="next-project" aria-label="Project navigation"><a href="./meilisearch"><span class="eyebrow">Next project</span><span class="next-title">Meilisearch Integration</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
         </div>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
+    </footer>
 </body>
 </html>

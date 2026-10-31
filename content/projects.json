@@ -1,0 +1,313 @@
+[
+  {
+    "slug": "odoo-whatsapp",
+    "title": "Odoo Procurement Automation",
+    "category": "ERP & procurement",
+    "kind": "Work project",
+    "tone": "sage",
+    "focus": "Supplier communication & procurement automation",
+    "started": "June",
+    "summary": "Bringing RFQs, purchase orders, payment notices, and pickup scheduling from Odoo into suppliers’ WhatsApp conversations.",
+    "context": "Monotaro Indonesia connects business buyers with many suppliers. For products without known supplier stock, procurement needs to check availability before proceeding. As buyer demand increased, a small procurement team had more supplier follow-ups to handle. RFQs already went out by email, but many suppliers were more responsive on WhatsApp. The project brings those procurement actions into the channel suppliers actually use.",
+    "features": ["Send RFQ inquiries from an Odoo action.", "Deliver purchase orders, payment documents, and pickup notices.", "Reach up to five alternative suppliers per SKU."],
+    "tech": ["Odoo", "Python", "Cloud Functions", "Task queues", "GCP", "Cloud SQL", "BigQuery", "Chatwoot"],
+    "mini": ["Odoo", "GCP pipeline", "WhatsApp"],
+    "miniNote": "Functions → Queues / CFs → Instance",
+    "flowTitle": "Outbound message delivery",
+    "flowNote": "The queue/function stage represents intermediate processing between the Python entry function and the GCP sending instance. Individual automation flows are shown with their descriptions below.",
+    "nodes": [
+      {"name": "Odoo", "label": "Procurement action", "description": "An RFQ, PO, payment notice, or pickup event initiates a message request."},
+      {"name": "Cloud Functions", "label": "Python entry point", "description": "Receives the Odoo request and handles the templated-message workflow."},
+      {"name": "Task queues", "label": "Function chain", "description": "Queued processing can pass through additional Cloud Functions before dispatch."},
+      {"name": "GCP instance", "label": "Message sending", "description": "Receives the prepared request and sends the message to WhatsApp."},
+      {"name": "WhatsApp groups", "label": "Supplier channel", "description": "Suppliers receive the message or document in their group conversations."}
+    ],
+    "metrics": [
+      {"value": ">50%", "label": "of outbound WhatsApp messages automated"},
+      {"value": "1,000+", "label": "suppliers connected to WhatsApp workflows"}
+    ],
+    "metricsNote": "Operational snapshot reported in October 2026. Supplier count is approximate.",
+    "workflows": [
+      {
+        "title": "RFQ inquiry & reply review",
+        "body": "A procurement team member sends an RFQ inquiry with a button in Odoo. A batch process analyzes supplier replies using AI and updates the purchase order’s RFQ WA Status field, including statuses for problems such as a price mismatch. Clean results can proceed to automatic RFQ confirmation and PO sending.",
+        "flow": ["RFQ inquiry", "Supplier reply", "AI batch analysis", "RFQ WA Status", "Confirm if clean"],
+        "detail": "Incoming messages are collected by a GCP instance, stored in Cloud SQL, and flow into BigQuery. Functions and a task queue also deliver messages to the Chatwoot conversation interface."
+      },
+      {
+        "title": "Purchase-order delivery",
+        "body": "Confirming an RFQ triggers delivery of the PO document to the supplier through WhatsApp.",
+        "flow": ["RFQ confirmed", "PO document", "WhatsApp delivery"]
+      },
+      {
+        "title": "Payment-document delivery",
+        "body": "Procurement emails are ingested into BigQuery, and bank payment notifications are converted into PDFs. The document is passed to Odoo for delivery through WhatsApp, reducing manual payment notifications.",
+        "flow": ["Procurement mailbox", "BigQuery", "Payment PDF", "Odoo", "WhatsApp delivery"]
+      },
+      {
+        "title": "Pickup scheduling",
+        "body": "Procurement sets the pickup field in Odoo, which triggers the supplier message with the pickup schedule.",
+        "flow": ["Pickup field set", "Pickup message", "WhatsApp delivery"]
+      },
+      {
+        "title": "Alternative supplier outreach",
+        "body": "When the primary supplier has no stock, the vendor-alternative team can trigger outreach to up to five alternative suppliers per SKU with a button, replacing separate manual messages to each vendor.",
+        "flow": ["Primary supplier out of stock", "Outreach action", "Up to 5 vendors / SKU"]
+      }
+    ],
+    "decisions": [
+      {"title": "Meet suppliers in their existing channel", "body": "Email RFQs were already part of the process, but many went unanswered. WhatsApp group conversations fit how these suppliers actually communicated, so the integration was shaped around that workflow."},
+      {"title": "Make the message easier to answer", "body": "The RFQ templates were refined with clearer wording and an easier reply format, helping suppliers respond to the inquiry in a useful way."}
+    ]
+  },
+  {
+    "slug": "chatdesk",
+    "title": "ChatDesk",
+    "category": "Customer support",
+    "kind": "Work project",
+    "tone": "peach",
+    "focus": "Customer conversations & template outreach inside Zendesk",
+    "summary": "A Zendesk sidebar app for customer WhatsApp conversations, ticket-to-template field mapping, and outreach logging.",
+    "context": "Customer service already used Zendesk for tickets, but WhatsApp outreach meant switching tabs and copying ticket values into message templates. ChatDesk provides a custom Zendesk sidebar interface connected to Chatwoot, with ticket fields mapped into the app and WhatsApp templates. An earlier usage check put total message volume at roughly 50–100 messages per day.",
+    "features": ["Open the customer’s conversation from the ticket’s phone number.", "Map Zendesk fields to app inputs and WhatsApp template parameters.", "Record each template send in the Zendesk ticket."],
+    "tech": ["Zendesk app", "Python", "Chatwoot", "Meta WhatsApp API"],
+    "mini": ["Ticket", "ChatDesk", "WhatsApp"],
+    "miniNote": "Custom Zendesk sidebar + Chatwoot",
+    "showOverview": false,
+    "workflowEyebrow": "The support workflow",
+    "workflowTitle": "Customer outreach, beside the ticket.",
+    "workflows": [
+      {
+        "title": "Open the right customer conversation",
+        "body": "The customer phone number on the Zendesk ticket is mapped into ChatDesk’s custom sidebar interface. The interface connects to Chatwoot so agents can review the customer’s messages and send a WhatsApp message while staying inside Zendesk.",
+        "flow": ["Zendesk ticket", "Customer phone number", "Custom sidebar UI", "Chatwoot conversation"]
+      },
+      {
+        "title": "Prepare WhatsApp templates from ticket fields",
+        "body": "Zendesk fields map to app inputs and WhatsApp template parameters, reducing repeated copying between tools. The ChatDesk backend calls Chatwoot, which sends the message through the Meta WhatsApp API.",
+        "flow": ["Mapped ticket fields", "ChatDesk backend", "Chatwoot", "Meta WhatsApp API", "Customer"]
+      },
+      {
+        "title": "Keep template outreach in the ticket record",
+        "body": "Each template message send is recorded in its Zendesk ticket, keeping a record of the outreach alongside the support work.",
+        "flow": ["Template sent", "Send recorded", "Zendesk ticket"]
+      }
+    ]
+  },
+  {
+    "slug": "meilisearch",
+    "title": "Meilisearch Integration",
+    "category": "Search experience",
+    "kind": "Work project",
+    "tone": "blue",
+    "focus": "Product suggestions, indexing & relevance",
+    "summary": "Direct product suggestions in the search bar, backed by daily index rebuilds and product-focused relevance tuning.",
+    "context": "The previous search bar suggested search terms: typing “Paper” could suggest searching for “Paper” again. With Meilisearch, the dropdown shows matching paper products directly. Backend indexing and relevance configuration support the product suggestions presented in the search bar.",
+    "features": ["Surface matching products directly in the search-bar dropdown.", "Rebuild the product index from BigQuery data every day.", "Configure relevance using product attributes, activity counts, and synonyms."],
+    "tech": ["Python", "Meilisearch", "BigQuery", "Cloud Run Jobs"],
+    "mini": ["Search term", "Meilisearch", "Products"],
+    "miniNote": "Product suggestions in the search bar",
+    "showOverview": false,
+    "workflowEyebrow": "The search experience",
+    "workflowTitle": "From a query to a product.",
+    "metrics": [
+      {"value": "6M", "label": "SKUs indexed"},
+      {"value": "5%", "label": "click-through rate on product suggestions"}
+    ],
+    "metricsTitle": "Search performance",
+    "metricsNote": "CTR refers to clicks on product suggestions in the search bar.",
+    "workflows": [
+      {
+        "title": "Show matching products in the search bar",
+        "body": "Typing “Paper” brings up matching paper products in the search-bar dropdown. Indexing, result-field selection, and ranking configuration provide the backend support for those product suggestions.",
+        "flow": ["“Paper” query", "Meilisearch", "Matching paper products"]
+      },
+      {
+        "title": "Rebuild the catalog index every day",
+        "body": "A Cloud Run job queries product data stored in BigQuery and builds a fresh Meilisearch index each day. The catalog contains around six million SKUs. The active index is switched only after the replacement is built successfully; the old index is then removed. Products absent from the new snapshot are excluded.",
+        "flow": ["BigQuery product data", "Cloud Run job", "Build new index", "Switch on success", "Drop old index"],
+        "detail": "A failed rebuild triggers an automatic retry. If that also fails, the existing index remains active and rebuilding is attempted again another day."
+      },
+      {
+        "title": "Tune relevance around product attributes",
+        "body": "Model, brand, and product name are the key product fields for relevance. Search counts and purchase counts are included as ranking inputs, with synonyms configured to connect related search terms. The configuration also determines which product fields are returned for the suggestions.",
+        "flow": ["Model / brand / name", "Relevance + activity signals", "Product suggestions"]
+      }
+    ],
+    "outcome": "Product suggestions in the search bar recorded a 5% click-through rate."
+  },
+  {
+    "slug": "scm",
+    "title": "Stock Count Management",
+    "category": "Warehouse operations",
+    "kind": "Work project",
+    "tone": "stone",
+    "focus": "Stock-count sessions, count sheets & recount cycles",
+    "status": "Awaiting operational use",
+    "summary": "An Oracle APEX application for stock-count sessions, printable QR-linked sheets, and recount cycles, with Odoo file import and export.",
+    "context": "SCM is designed for Finance and Accounting teams auditing warehouse stock. It organizes quarterly and annual stock-count sessions, including annual counts split into parts. Location-based count sheets, review cycles, and Odoo file exchange support the count from preparation to its final export. The application has not yet entered operational use.",
+    "features": ["Organize stock-count sessions and preserve their history.", "Generate printable, QR-linked count sheets by location.", "Manage recount cycles and exchange stock files with Odoo."],
+    "tech": ["Oracle APEX"],
+    "mini": ["Sessions", "Sheets", "Cycles"],
+    "miniNote": "Odoo file exchange · QR-linked PDFs",
+    "showOverview": false,
+    "workflowEyebrow": "The stock-count workflow",
+    "workflowTitle": "Prepare, count, review, and recount.",
+    "workflows": [
+      {
+        "title": "Organize count sessions and their history",
+        "body": "Quarterly and annual counts are organized as separate sessions, with annual counts also divided into parts. Past sessions are documented and can be restored when needed.",
+        "flow": ["Count session", "Quarterly / annual scope", "Session history", "Restore if needed"]
+      },
+      {
+        "title": "Create a session from an Odoo stock file",
+        "body": "An Odoo stock_quant file can be uploaded into SCM to create a new stock-count session.",
+        "flow": ["Odoo stock_quant file", "Upload to SCM", "New count session"]
+      },
+      {
+        "title": "Generate count sheets by location",
+        "body": "Stock lines are divided into location-based count sheets, called papers in the application. Each paper can be generated as a printable PDF for the count.",
+        "flow": ["Session stock lines", "Group by location", "Count sheets", "Printable PDFs"]
+      },
+      {
+        "title": "Manage line-level recount cycles",
+        "body": "Each paper has a count cycle. Rejected lines generate a new paper and a new cycle, allowing items to be counted again as needed.",
+        "flow": ["Count sheet", "Review lines", "Rejected lines", "New sheet + next cycle"],
+        "detail": "A supervisor can force-accept a discrepant line when needed."
+      },
+      {
+        "title": "Open the matching sheet from its QR code",
+        "body": "Each PDF includes a QR code containing the paper’s ID. Scanning it inside SCM opens that count sheet directly.",
+        "flow": ["QR on printed PDF", "Scan in SCM", "Open matching sheet"]
+      },
+      {
+        "title": "Export count results back to Odoo",
+        "body": "The stock-count result can be exported as a CSV file for import back into Odoo.",
+        "flow": ["Stock-count results", "CSV export", "Odoo import"]
+      }
+    ]
+  },
+  {
+    "slug": "silci",
+    "title": "SI-LCI",
+    "category": "Inventory & procurement",
+    "kind": "University project",
+    "tone": "sage",
+    "focus": "Inventory management for PT LC",
+    "summary": "An inventory and procurement system for tracking warehouse stock and purchasing from suppliers.",
+    "context": "Built for PT LC as the final project for the Information System Development Project course. SI-LCI gives staff a website to track warehouse inventory and procure items from factories and suppliers.",
+    "features": ["Keep track of items in warehouse inventory.", "Organize warehouse and supplier information.", "Support the procurement of items from factories and suppliers."],
+    "tech": ["Python", "Django", "React", "PostgreSQL"],
+    "thumbnail": "img/thumbs/silci.png",
+    "thumbnailAlt": "SI-LCI inventory screen with product listings and warehouse navigation",
+    "flowTitle": "Two connected sides of inventory operations",
+    "flowNote": "Conceptual overview of the application’s inventory and procurement responsibilities.",
+    "nodes": [
+      {"name": "Warehouse inventory", "label": "Track", "description": "View and manage the items held in warehouses."},
+      {"name": "SI-LCI", "label": "Shared application", "description": "Bring inventory and procurement into one website."},
+      {"name": "Supplier procurement", "label": "Purchase", "description": "Procure needed items from factories and suppliers."}
+    ],
+    "gallery": [
+      {"src": "img/Silci/Silci_2.png", "caption": "Inventory listing"},
+      {"src": "img/Silci/Silci_3.png", "caption": "SI-LCI application view 02"},
+      {"src": "img/Silci/Silci_4.png", "caption": "SI-LCI application view 03"},
+      {"src": "img/Silci/Silci_5.png", "caption": "SI-LCI application view 04"},
+      {"src": "img/Silci/Silci_1.png", "caption": "Sign-in screen"}
+    ]
+  },
+  {
+    "slug": "apapedia",
+    "title": "Apapedia",
+    "category": "Web & mobile commerce",
+    "kind": "University project",
+    "tone": "blue",
+    "focus": "Seller web & buyer mobile experiences",
+    "summary": "An e-commerce platform with a web interface for sellers and a mobile application for buyers.",
+    "context": "Built as the final project for Enterprise Application Architecture and Programming. The platform serves two sides of e-commerce: sellers list products and track sales on the web, while buyers use a mobile frontend.",
+    "features": ["Give sellers a web interface to list products.", "Support sellers in tracking sales.", "Provide buyers with a separate mobile frontend."],
+    "tech": ["Java", "Spring Boot", "Flutter", "Docker"],
+    "thumbnail": "img/thumbs/apapedia.png",
+    "thumbnailAlt": "Apapedia seller product listing with sorting and price filters",
+    "flowTitle": "Two frontends, one commerce platform",
+    "flowNote": "Conceptual view of the platform’s user-facing applications.",
+    "nodes": [
+      {"name": "Seller web", "label": "Manage", "description": "List items and track sales through the website."},
+      {"name": "Apapedia", "label": "Commerce platform", "description": "Support the platform’s seller and buyer experiences."},
+      {"name": "Buyer mobile", "label": "Browse", "description": "Access the buyer experience through a mobile frontend."}
+    ],
+    "gallery": [
+      {"src": "img/Apapedia/Apapedia_2.png", "caption": "Seller product listing"},
+      {"src": "img/Apapedia/Apapedia_1.png", "caption": "Seller homepage"},
+      {"src": "img/Apapedia/Apapedia_3.png", "caption": "Seller web application view 03"},
+      {"src": "img/Apapedia/Apapedia_4.png", "caption": "Seller web application view 04"},
+      {"src": "img/Apapedia/Apapedia_5.png", "caption": "Seller web application view 05"},
+      {"src": "img/Apapedia/Apapedia_6.png", "caption": "Seller web application view 06"},
+      {"src": "img/Apapedia/Apapedia_7.png", "caption": "Seller web application view 07"},
+      {"src": "img/Apapedia/ApapediaMob_1.png", "caption": "Buyer mobile application view 01"},
+      {"src": "img/Apapedia/ApapediaMob_2.png", "caption": "Buyer mobile application view 02"},
+      {"src": "img/Apapedia/ApapediaMob_3.png", "caption": "Buyer mobile application view 03"},
+      {"src": "img/Apapedia/ApapediaMob_4.png", "caption": "Buyer mobile application view 04"},
+      {"src": "img/Apapedia/ApapediaMob_5.png", "caption": "Buyer mobile application view 05"}
+    ]
+  },
+  {
+    "slug": "mypanel",
+    "title": "MyPanel",
+    "category": "Solar energy & commerce",
+    "kind": "University project",
+    "tone": "peach",
+    "focus": "Solar panel discovery & cost estimation",
+    "summary": "A web and mobile application for learning about solar panels, exploring products, and estimating installation costs.",
+    "context": "Built as the final project for Platform-based Programming. MyPanel brings solar panel information, shopping, and an installation cost calculator into a web and mobile experience.",
+    "features": ["Help people learn about solar panels.", "Provide a way to browse and purchase solar panel products.", "Estimate the cost of installing solar panels in a building."],
+    "tech": ["Python", "Django", "Flutter"],
+    "thumbnail": "img/thumbs/mypanel.png",
+    "thumbnailAlt": "MyPanel solar calculator with energy usage and roof area inputs",
+    "flowTitle": "From learning to planning a solar installation",
+    "flowNote": "Conceptual overview of the application’s main user activities.",
+    "nodes": [
+      {"name": "Learn", "label": "Understand solar", "description": "Explore information about solar panels."},
+      {"name": "Estimate", "label": "Plan an installation", "description": "Calculate an estimated installation cost."},
+      {"name": "Shop", "label": "Explore products", "description": "Browse solar panel products in the marketplace."}
+    ],
+    "gallery": [
+      {"src": "img/MyPanel/MyPanel_3.png", "caption": "Solar installation calculator"},
+      {"src": "img/MyPanel/MyPanel_1.png", "caption": "MyPanel application view 02"},
+      {"src": "img/MyPanel/MyPanel_2.png", "caption": "MyPanel application view 03"},
+      {"src": "img/MyPanel/MyPanel_4.png", "caption": "MyPanel application view 04"},
+      {"src": "img/MyPanel/MyPanel_5.png", "caption": "MyPanel application view 05"},
+      {"src": "img/MyPanel/MyPanel_6.png", "caption": "MyPanel application view 06"},
+      {"src": "img/MyPanel/MyPanel_7.png", "caption": "MyPanel application view 07"},
+      {"src": "img/MyPanel/MyPanel_8.png", "caption": "MyPanel application view 08"},
+      {"src": "img/MyPanel/MyPanel_9.png", "caption": "MyPanel application view 09"}
+    ]
+  },
+  {
+    "slug": "babadu",
+    "title": "Babadu",
+    "category": "Sports & data management",
+    "kind": "University project",
+    "tone": "blue",
+    "focus": "Badminton athletes & tournaments",
+    "summary": "A Django and PostgreSQL application for tracking badminton athletes and tournaments.",
+    "context": "Created for a database course, Babadu applies Django and PostgreSQL to the domain of local badminton. The application brings athlete and tournament information into a web interface.",
+    "features": ["Track local badminton athletes.", "Organize tournament information.", "Present badminton records through a web application."],
+    "tech": ["Python", "Django", "PostgreSQL"],
+    "thumbnail": "img/thumbs/babadu.png",
+    "thumbnailAlt": "Babadu qualification schedule displayed in a table",
+    "flowTitle": "An application around badminton records",
+    "flowNote": "Conceptual overview of the application’s subject areas, not a database schema.",
+    "nodes": [
+      {"name": "Athlete records", "label": "People", "description": "Information about local badminton athletes."},
+      {"name": "Babadu", "label": "Web application", "description": "A Django application backed by PostgreSQL."},
+      {"name": "Tournament records", "label": "Events", "description": "Information about badminton tournaments."}
+    ],
+    "gallery": [
+      {"src": "img/Babadu/Babadu_2.png", "caption": "Qualification schedule"},
+      {"src": "img/Babadu/Babadu_3.png", "caption": "Babadu application view 02"},
+      {"src": "img/Babadu/Babadu_4.png", "caption": "Babadu application view 03"},
+      {"src": "img/Babadu/Babadu_5.png", "caption": "Babadu application view 04"},
+      {"src": "img/Babadu/Babadu_1.png", "caption": "Babadu application view 05"}
+    ]
+  }
+]

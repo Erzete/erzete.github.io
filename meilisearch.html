@@ -3,33 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Direct product suggestions in the search bar, backed by daily index rebuilds and product-focused relevance tuning.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meilisearch Integration — Rama Tridigdaya">
+    <meta property="og:description" content="Direct product suggestions in the search bar, backed by daily index rebuilds and product-focused relevance tuning.">
+    <meta property="og:url" content="https://erzete.github.io/meilisearch">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/meilisearch">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <title>Meilisearch — Rama Tridigdaya</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
+    <title>Meilisearch Integration — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">Meilisearch Integration</span></nav>
+            <span class="eyebrow">Work project / Search experience</span>
 
-    <div class="content">
-        <h1>Meilisearch Integration</h1>
-        <p>The old search was sluggish and a single typo would return nothing useful. Dropped in Meilisearch and it's night and day — instant results, typo-tolerant, people actually find stuff now and the conversion rate shows it.</p>
-        <br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/meilisearch.svg" alt="Meilisearch" style="width: 44px;">
+            <h1>Meilisearch Integration</h1>
+            <p class="project-summary">Direct product suggestions in the search bar, backed by daily index rebuilds and product-focused relevance tuning.</p>
+            <div class="project-meta"><div><span class="meta-label">Focus</span><p>Product suggestions, indexing &amp; relevance</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Python</li><li>Meilisearch</li><li>BigQuery</li><li>Cloud Run Jobs</li></ul></div></div>
+        </header>
+        <section class="project-results" aria-labelledby="results-title"><h2 class="eyebrow" id="results-title">Search performance</h2><dl class="results-grid"><div><dt>SKUs indexed</dt><dd>6M</dd></div><div><dt>click-through rate on product suggestions</dt><dd>5%</dd></div></dl><p class="results-note">CTR refers to clicks on product suggestions in the search bar.</p></section>
+        <section class="case-intro" aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>The previous search bar suggested search terms: typing “Paper” could suggest searching for “Paper” again. With Meilisearch, the dropdown shows matching paper products directly. Backend indexing and relevance configuration support the product suggestions presented in the search bar.</p></section>
+
+
+        <section class="workflow-section" aria-labelledby="workflows-title"><span class="eyebrow">The search experience</span><h2 id="workflows-title">From a query to a product.</h2><ol class="workflow-list"><li><span class="workflow-index" aria-hidden="true">01</span><div class="workflow-content"><h3>Show matching products in the search bar</h3><p>Typing “Paper” brings up matching paper products in the search-bar dropdown. Indexing, result-field selection, and ranking configuration provide the backend support for those product suggestions.</p><figure class="workflow-diagram" aria-label="Show matching products in the search bar flow"><ol class="workflow-flow"><li>“Paper” query</li><li>Meilisearch</li><li>Matching paper products</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">02</span><div class="workflow-content"><h3>Rebuild the catalog index every day</h3><p>A Cloud Run job queries product data stored in BigQuery and builds a fresh Meilisearch index each day. The catalog contains around six million SKUs. The active index is switched only after the replacement is built successfully; the old index is then removed. Products absent from the new snapshot are excluded.</p><figure class="workflow-diagram" aria-label="Rebuild the catalog index every day flow"><ol class="workflow-flow"><li>BigQuery product data</li><li>Cloud Run job</li><li>Build new index</li><li>Switch on success</li><li>Drop old index</li></ol></figure><p class="workflow-detail">A failed rebuild triggers an automatic retry. If that also fails, the existing index remains active and rebuilding is attempted again another day.</p></div></li><li><span class="workflow-index" aria-hidden="true">03</span><div class="workflow-content"><h3>Tune relevance around product attributes</h3><p>Model, brand, and product name are the key product fields for relevance. Search counts and purchase counts are included as ranking inputs, with synonyms configured to connect related search terms. The configuration also determines which product fields are returned for the suggestions.</p><figure class="workflow-diagram" aria-label="Tune relevance around product attributes flow"><ol class="workflow-flow"><li>Model / brand / name</li><li>Relevance + activity signals</li><li>Product suggestions</li></ol></figure></div></li></ol></section>
+        <section class="project-outcome" aria-labelledby="outcome-title"><h2 class="eyebrow" id="outcome-title">Observed result</h2><p>Product suggestions in the search bar recorded a 5% click-through rate.</p></section>
+
+
+        <nav class="next-project" aria-label="Project navigation"><a href="./scm"><span class="eyebrow">Next project</span><span class="next-title">Stock Count Management</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
         </div>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
+    </footer>
 </body>
 </html>

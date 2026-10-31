@@ -3,93 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An e-commerce platform with a web interface for sellers and a mobile application for buyers.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Apapedia — Rama Tridigdaya">
+    <meta property="og:description" content="An e-commerce platform with a web interface for sellers and a mobile application for buyers.">
+    <meta property="og:url" content="https://erzete.github.io/apapedia">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/apapedia">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
     <title>Apapedia — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-
-    <div class="content">
-        <h1>APAPEDIA</h1>
-        <p>An e-commerce website made as a final project for Enterprise Application Architecture and Programming course.
-            List the items you want to sell and track your sales on the website. The project has 2 frontends, web frontend 
-            for the seller and mobile frontend for the buyers.
-        </p>
-    </br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" alt="Docker">
-        </div>
-
-        <section class="container">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="img/Apapedia/Apapedia_1.png" alt="Apapedia Preview 1" id="slide-1">
-                    <img src="img/Apapedia/Apapedia_2.png" alt="Apapedia Preview 2" id="slide-2">
-                    <img src="img/Apapedia/Apapedia_3.png" alt="Apapedia Preview 3" id="slide-3">
-                    <img src="img/Apapedia/Apapedia_4.png" alt="Apapedia Preview 4" id="slide-4">
-                    <img src="img/Apapedia/Apapedia_5.png" alt="Apapedia Preview 5" id="slide-5">
-                </div>
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                    <a href="#slide-4"></a>
-                    <a href="#slide-5"></a>
-                </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
             </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">Apapedia</span></nav>
+            <span class="eyebrow">University project / Web &amp; mobile commerce</span>
+
+            <h1>Apapedia</h1>
+            <p class="project-summary">An e-commerce platform with a web interface for sellers and a mobile application for buyers.</p>
+            <div class="project-meta"><div><span class="meta-label">Focus</span><p>Seller web &amp; buyer mobile experiences</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Java</li><li>Spring Boot</li><li>Flutter</li><li>Docker</li></ul></div></div>
+        </header>
+
+
+
+        <figure class="system-figure tone-blue" aria-labelledby="diagram-title">
+            <div class="figure-heading"><h2 id="diagram-title">Two frontends, one commerce platform</h2><span class="figure-index">System overview</span></div>
+            <ol class="flow"><li class="flow-node"><span class="flow-step">01 / Manage</span><strong>Seller web</strong><p>List items and track sales through the website.</p></li><li class="flow-node central"><span class="flow-step">02 / Commerce platform</span><strong>Apapedia</strong><p>Support the platform’s seller and buyer experiences.</p></li><li class="flow-node"><span class="flow-step">03 / Browse</span><strong>Buyer mobile</strong><p>Access the buyer experience through a mobile frontend.</p></li></ol>
+            <figcaption>Conceptual view of the platform’s user-facing applications.</figcaption>
+        </figure>
+        <div class="case-copy"><section aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>Built as the final project for Enterprise Application Architecture and Programming. The platform serves two sides of e-commerce: sellers list products and track sales on the web, while buyers use a mobile frontend.</p></section><section aria-labelledby="does-title"><h2 id="does-title">What it does</h2><ul class="feature-list"><li>Give sellers a web interface to list products.</li><li>Support sellers in tracking sales.</li><li>Provide buyers with a separate mobile frontend.</li></ul></section></div>
+
+
+
+
+        <section class="gallery-section" data-gallery aria-labelledby="gallery-title">
+            <span class="eyebrow">Inside the application</span><h2 id="gallery-title">A look at the interface.</h2>
+            <p class="gallery-intro">Swipe or scroll through the screenshots. Open an image for a closer look.</p>
+            <div class="gallery-track" tabindex="0" role="region" aria-label="Project screenshots; use left and right arrow keys to navigate">
+                <figure class="gallery-slide" aria-label="Screenshot 1 of 12"><a href="img/Apapedia/Apapedia_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller product listing"><img src="img/Apapedia/Apapedia_2.png" alt="Seller product listing" width="1891" height="893" loading="lazy" decoding="async"></a><figcaption>Seller product listing<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 2 of 12"><a href="img/Apapedia/Apapedia_1.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller homepage"><img src="img/Apapedia/Apapedia_1.png" alt="Seller homepage" width="1900" height="902" loading="lazy" decoding="async"></a><figcaption>Seller homepage<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 3 of 12"><a href="img/Apapedia/Apapedia_3.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller web application view 03"><img src="img/Apapedia/Apapedia_3.png" alt="Seller web application view 03" width="1892" height="906" loading="lazy" decoding="async"></a><figcaption>Seller web application view 03<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 4 of 12"><a href="img/Apapedia/Apapedia_4.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller web application view 04"><img src="img/Apapedia/Apapedia_4.png" alt="Seller web application view 04" width="1892" height="906" loading="lazy" decoding="async"></a><figcaption>Seller web application view 04<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 5 of 12"><a href="img/Apapedia/Apapedia_5.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller web application view 05"><img src="img/Apapedia/Apapedia_5.png" alt="Seller web application view 05" width="1893" height="887" loading="lazy" decoding="async"></a><figcaption>Seller web application view 05<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 6 of 12"><a href="img/Apapedia/Apapedia_6.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller web application view 06"><img src="img/Apapedia/Apapedia_6.png" alt="Seller web application view 06" width="1895" height="902" loading="lazy" decoding="async"></a><figcaption>Seller web application view 06<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 7 of 12"><a href="img/Apapedia/Apapedia_7.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Seller web application view 07"><img src="img/Apapedia/Apapedia_7.png" alt="Seller web application view 07" width="1896" height="890" loading="lazy" decoding="async"></a><figcaption>Seller web application view 07<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 8 of 12"><a href="img/Apapedia/ApapediaMob_1.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Buyer mobile application view 01"><img src="img/Apapedia/ApapediaMob_1.png" alt="Buyer mobile application view 01" width="480" height="848" loading="lazy" decoding="async"></a><figcaption>Buyer mobile application view 01<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 9 of 12"><a href="img/Apapedia/ApapediaMob_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Buyer mobile application view 02"><img src="img/Apapedia/ApapediaMob_2.png" alt="Buyer mobile application view 02" width="482" height="840" loading="lazy" decoding="async"></a><figcaption>Buyer mobile application view 02<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 10 of 12"><a href="img/Apapedia/ApapediaMob_3.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Buyer mobile application view 03"><img src="img/Apapedia/ApapediaMob_3.png" alt="Buyer mobile application view 03" width="477" height="840" loading="lazy" decoding="async"></a><figcaption>Buyer mobile application view 03<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 11 of 12"><a href="img/Apapedia/ApapediaMob_4.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Buyer mobile application view 04"><img src="img/Apapedia/ApapediaMob_4.png" alt="Buyer mobile application view 04" width="482" height="847" loading="lazy" decoding="async"></a><figcaption>Buyer mobile application view 04<span>Open image to view full size ↗</span></figcaption></figure>
+                <figure class="gallery-slide" aria-label="Screenshot 12 of 12"><a href="img/Apapedia/ApapediaMob_5.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: Buyer mobile application view 05"><img src="img/Apapedia/ApapediaMob_5.png" alt="Buyer mobile application view 05" width="482" height="850" loading="lazy" decoding="async"></a><figcaption>Buyer mobile application view 05<span>Open image to view full size ↗</span></figcaption></figure>
+            </div>
+            <div class="gallery-controls" hidden><p aria-live="polite" aria-atomic="true">Screenshot <span data-count>1 / 12</span></p><div class="gallery-buttons"><button type="button" data-previous aria-label="Previous screenshot">←</button><button type="button" data-next aria-label="Next screenshot">→</button></div></div>
         </section>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = document.querySelector('.slider');
-            const slides = document.querySelectorAll('.slider img');
-            const navLinks = document.querySelectorAll('.slider-nav a');
-
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-
-            function showSlide(index) {
-                const slideWidth = slides[0].clientWidth;
-                slider.scrollLeft = index * slideWidth;
-                navLinks.forEach(link => link.classList.remove('active'));
-                navLinks[index].classList.add('active');
-            }
-
-            function autoSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                showSlide(currentIndex);
-            }
-
-            let slideInterval = setInterval(autoSlide, 3000); // Change slide every 3 seconds
-
-            navLinks.forEach((link, index) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    clearInterval(slideInterval);
-                    showSlide(index);
-                    currentIndex = index;
-                    slideInterval = setInterval(autoSlide, 3000); // Restart auto-slide interval
-                });
-            });
-
-            navLinks[0].classList.add('active');
-        });
-    </script>
+        <nav class="next-project" aria-label="Project navigation"><a href="./mypanel"><span class="eyebrow">Next project</span><span class="next-title">MyPanel</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
+        </div>
+    </footer>
 </body>
 </html>

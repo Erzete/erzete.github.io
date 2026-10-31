@@ -3,35 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bringing RFQs, purchase orders, payment notices, and pickup scheduling from Odoo into suppliers’ WhatsApp conversations.">
+    <meta name="theme-color" content="#faf9f6">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Odoo Procurement Automation — Rama Tridigdaya">
+    <meta property="og:description" content="Bringing RFQs, purchase orders, payment notices, and pickup scheduling from Odoo into suppliers’ WhatsApp conversations.">
+    <meta property="og:url" content="https://erzete.github.io/odoo-whatsapp">
+    <meta property="og:image" content="https://erzete.github.io/img/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://erzete.github.io/odoo-whatsapp">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projectstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-    <title>Odoo WhatsApp — Rama Tridigdaya</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/site.js" defer></script>
+    <title>Odoo Procurement Automation — Rama Tridigdaya</title>
+<link rel="stylesheet" href="css/directions.css">
 </head>
-<body>
-    <div class="topnav">
-        <a href="./" class="home">RT</a>
-        <a href="./#projects">Projects</a>
-        <a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/erzete" target="_blank">Github</a>
-        <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');this.parentElement.classList.toggle('nav-open')">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+<body class="direction-bold-grid">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="./" aria-label="Rama Tridigdaya home"><span class="brand-mark" aria-hidden="true">RT</span><span class="brand-name">Rama Tridigdaya</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span class="menu-symbol" aria-hidden="true">+</span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="./#projects">Work</a>
+                <a href="./#about">About</a>
+                <a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="nav-contact" href="./#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="wrap case-study">
+        <header class="project-header">
+            <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./#projects">Work</a><span aria-hidden="true">/</span><span aria-current="page">Odoo Procurement Automation</span></nav>
+            <span class="eyebrow">Work project / ERP &amp; procurement</span>
 
-    <div class="content">
-        <h1>Odoo WhatsApp Integration</h1>
-        <p>Procurement used to be a mess of scattered WhatsApp messages and manual follow-ups. Wired up Chatwoot to sit between WhatsApp and Odoo so the whole thing runs itself — supplier comms, order confirmations, notifications. Just works in the background now.</p>
-        <br>
-        <p>Tech Stack:</p>
-        <div class="tech-stack">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/chatwoot.svg" alt="Chatwoot" style="width: 44px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/odoo.svg" alt="Odoo" style="width: 44px;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="GCP">
+            <h1>Odoo Procurement Automation</h1>
+            <p class="project-summary">Bringing RFQs, purchase orders, payment notices, and pickup scheduling from Odoo into suppliers’ WhatsApp conversations.</p>
+            <div class="project-meta with-timeline"><div><span class="meta-label">Focus</span><p>Supplier communication &amp; procurement automation</p></div><div><span class="meta-label">Started</span><p>June</p></div><div><span class="meta-label">Built with</span><ul class="tags" aria-label="Technologies"><li>Odoo</li><li>Python</li><li>Cloud Functions</li><li>Task queues</li><li>GCP</li><li>Cloud SQL</li><li>BigQuery</li><li>Chatwoot</li></ul></div></div>
+        </header>
+        <section class="project-results" aria-labelledby="results-title"><h2 class="eyebrow" id="results-title">Operational scale</h2><dl class="results-grid"><div><dt>of outbound WhatsApp messages automated</dt><dd>&gt;50%</dd></div><div><dt>suppliers connected to WhatsApp workflows</dt><dd>1,000+</dd></div></dl><p class="results-note">Operational snapshot reported in October 2026. Supplier count is approximate.</p></section>
+        <section class="case-intro" aria-labelledby="context-title"><h2 id="context-title">The context</h2><p>Monotaro Indonesia connects business buyers with many suppliers. For products without known supplier stock, procurement needs to check availability before proceeding. As buyer demand increased, a small procurement team had more supplier follow-ups to handle. RFQs already went out by email, but many suppliers were more responsive on WhatsApp. The project brings those procurement actions into the channel suppliers actually use.</p></section>
+
+        <figure class="system-figure tone-sage" aria-labelledby="diagram-title">
+            <div class="figure-heading"><h2 id="diagram-title">Outbound message delivery</h2><span class="figure-index">System overview</span></div>
+            <ol class="flow flow-long"><li class="flow-node"><span class="flow-step">01 / Procurement action</span><strong>Odoo</strong><p>An RFQ, PO, payment notice, or pickup event initiates a message request.</p></li><li class="flow-node central"><span class="flow-step">02 / Python entry point</span><strong>Cloud Functions</strong><p>Receives the Odoo request and handles the templated-message workflow.</p></li><li class="flow-node"><span class="flow-step">03 / Function chain</span><strong>Task queues</strong><p>Queued processing can pass through additional Cloud Functions before dispatch.</p></li><li class="flow-node"><span class="flow-step">04 / Message sending</span><strong>GCP instance</strong><p>Receives the prepared request and sends the message to WhatsApp.</p></li><li class="flow-node"><span class="flow-step">05 / Supplier channel</span><strong>WhatsApp groups</strong><p>Suppliers receive the message or document in their group conversations.</p></li></ol>
+            <figcaption>The queue/function stage represents intermediate processing between the Python entry function and the GCP sending instance. Individual automation flows are shown with their descriptions below.</figcaption>
+        </figure>
+
+        <section class="workflow-section" aria-labelledby="workflows-title"><span class="eyebrow">The procurement workflow</span><h2 id="workflows-title">What the integration automates.</h2><ol class="workflow-list"><li><span class="workflow-index" aria-hidden="true">01</span><div class="workflow-content"><h3>RFQ inquiry &amp; reply review</h3><p>A procurement team member sends an RFQ inquiry with a button in Odoo. A batch process analyzes supplier replies using AI and updates the purchase order’s RFQ WA Status field, including statuses for problems such as a price mismatch. Clean results can proceed to automatic RFQ confirmation and PO sending.</p><figure class="workflow-diagram" aria-label="RFQ inquiry &amp; reply review flow"><ol class="workflow-flow"><li>RFQ inquiry</li><li>Supplier reply</li><li>AI batch analysis</li><li>RFQ WA Status</li><li>Confirm if clean</li></ol></figure><p class="workflow-detail">Incoming messages are collected by a GCP instance, stored in Cloud SQL, and flow into BigQuery. Functions and a task queue also deliver messages to the Chatwoot conversation interface.</p></div></li><li><span class="workflow-index" aria-hidden="true">02</span><div class="workflow-content"><h3>Purchase-order delivery</h3><p>Confirming an RFQ triggers delivery of the PO document to the supplier through WhatsApp.</p><figure class="workflow-diagram" aria-label="Purchase-order delivery flow"><ol class="workflow-flow"><li>RFQ confirmed</li><li>PO document</li><li>WhatsApp delivery</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">03</span><div class="workflow-content"><h3>Payment-document delivery</h3><p>Procurement emails are ingested into BigQuery, and bank payment notifications are converted into PDFs. The document is passed to Odoo for delivery through WhatsApp, reducing manual payment notifications.</p><figure class="workflow-diagram" aria-label="Payment-document delivery flow"><ol class="workflow-flow"><li>Procurement mailbox</li><li>BigQuery</li><li>Payment PDF</li><li>Odoo</li><li>WhatsApp delivery</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">04</span><div class="workflow-content"><h3>Pickup scheduling</h3><p>Procurement sets the pickup field in Odoo, which triggers the supplier message with the pickup schedule.</p><figure class="workflow-diagram" aria-label="Pickup scheduling flow"><ol class="workflow-flow"><li>Pickup field set</li><li>Pickup message</li><li>WhatsApp delivery</li></ol></figure></div></li><li><span class="workflow-index" aria-hidden="true">05</span><div class="workflow-content"><h3>Alternative supplier outreach</h3><p>When the primary supplier has no stock, the vendor-alternative team can trigger outreach to up to five alternative suppliers per SKU with a button, replacing separate manual messages to each vendor.</p><figure class="workflow-diagram" aria-label="Alternative supplier outreach flow"><ol class="workflow-flow"><li>Primary supplier out of stock</li><li>Outreach action</li><li>Up to 5 vendors / SKU</li></ol></figure></div></li></ol></section>
+
+        <section class="decision-section" aria-labelledby="decisions-title"><span class="eyebrow">Design decisions</span><h2 id="decisions-title">Designing around supplier behavior.</h2><div class="decision-grid"><article><h3>Meet suppliers in their existing channel</h3><p>Email RFQs were already part of the process, but many went unanswered. WhatsApp group conversations fit how these suppliers actually communicated, so the integration was shaped around that workflow.</p></article><article><h3>Make the message easier to answer</h3><p>The RFQ templates were refined with clearer wording and an easier reply format, helping suppliers respond to the inquiry in a useful way.</p></article></div></section>
+
+        <nav class="next-project" aria-label="Project navigation"><a href="./chatdesk"><span class="eyebrow">Next project</span><span class="next-title">ChatDesk</span></a><span class="next-arrow" aria-hidden="true">↗</span></nav>
+    </main>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div><span class="eyebrow">Get in touch</span><h2 id="contact-title">Let’s connect.</h2><p>Find me on LinkedIn or explore more of my work on GitHub.</p></div><div class="actions"><a class="button button-primary" href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    <footer class="site-footer">
+        <div class="footer-inner wrap">
+            <p>© 2026 Rama Tridigdaya</p>
+            <div class="footer-links"><a href="https://www.linkedin.com/in/ramatridigdaya/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/erzete" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div>
         </div>
-        <a href="./" class="back-link">&larr; Back to Home</a>
-    </div>
+    </footer>
 </body>
 </html>
